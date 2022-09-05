@@ -1,0 +1,1 @@
+﻿This is my privacy policy from file.

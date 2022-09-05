@@ -1,5 +1,6 @@
-using Altairis.Services.StaticContent;
+﻿using Altairis.Services.StaticContent;
 using Altairis.Services.StaticContent.DemoApp.Data;
+using Altairis.Services.StaticContent.ViewComponents;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +11,18 @@ builder.Services.AddDbContext<DemoDbContext>(options => {
 });
 
 // Add static content services
+builder.Services.Configure<FileStaticContentStoreOptions>(options => {
+    options.DataFolder = "./App_Data/Content";
+});
+builder.Services.Configure<StaticContentViewComponentOptions>(options => {
+    options.SurroundingElementName = "div";
+    options.SurroundingElementAttributes.Add("class", "static");
+    options.SurroundingElementAttributes.Add("title", "Firma \"Ďábel & syn\".");
+
+}); 
 builder.Services.AddTransient<IStaticContentContext, DemoDbContext>();
-builder.Services.AddTransient<IStaticContentStore, DbStaticContentStore>();
+//builder.Services.AddTransient<IStaticContentStore, DbStaticContentStore>();
+builder.Services.AddTransient<IStaticContentStore, FileStaticContentStore>();
 builder.Services.AddTransient<IStaticContentFormatter, MarkdownStaticContentFormatter>();
 builder.Services.AddTransient<StaticContentProvider>();
 

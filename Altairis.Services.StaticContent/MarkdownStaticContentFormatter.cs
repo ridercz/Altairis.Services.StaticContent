@@ -1,14 +1,23 @@
 ﻿using Markdig;
 using Microsoft.AspNetCore.Html;
+using Microsoft.Extensions.Options;
 
 namespace Altairis.Services.StaticContent;
 
 public class MarkdownStaticContentFormatter : IStaticContentFormatter {
-    public HtmlString GetHtml(string source) {
-        return new HtmlString(Markdown.ToHtml(source));
+    private readonly IOptions<MarkdownStaticContentFormatterOptions> options;
+
+    public MarkdownStaticContentFormatter(IOptions<MarkdownStaticContentFormatterOptions> options) {
+        this.options = options;
     }
 
-    public string GetPlainText(string source) {
-        return Markdown.ToPlainText(source);
-    }
+    public HtmlString GetHtml(string source) => new HtmlString(Markdown.ToHtml(source, this.options.Value.CreatePipeline()));
+
+    public string GetPlainText(string source) => Markdown.ToPlainText(source, this.options.Value.CreatePipeline());
+}
+
+public class MarkdownStaticContentFormatterOptions {
+
+    public Func<MarkdownPipeline> CreatePipeline { get; set; } = () => new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
+
 }

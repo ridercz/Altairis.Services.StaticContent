@@ -4,7 +4,35 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageId>Altairis.Services.StaticContent</PackageId>
+		<Title>Semi-static Content Provider</Title>
+		<Version>1.0.0-beta1</Version>
+		<Authors>altair</Authors>
+		<Company>Altairis</Company>
+		<Product>Altairis.Services.StaticContent</Product>
+		<Description>Infrastructure for managing semi-static content in ASP.NET Core applications.</Description>
+		<Copyright>(c) Michal A. Valášek - Altairis, 2022</Copyright>
+		<PackageProjectUrl>https://github.com/ridercz/Altairis.Services.StaticContent</PackageProjectUrl>
+		<PackageIcon>NuGet-64x64.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/ridercz/Altairis.Services.StaticContent.git</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Include="..\NuGet-64x64.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
 
 	<ItemGroup>
 		<Using Include="Microsoft.Extensions.Logging" />

@@ -17,8 +17,8 @@ builder.Services.Configure<StaticContentViewComponentOptions>(options => {
     options.SurroundingElementAttributes.Add("title", "Firma \"Ďábel & syn\".");
 });
 builder.Services.AddStaticContent()
-    .WithMarkdownFormatter()
-    .WithFileStaticContentStore("./App_Data/Content");
+    .UseMarkdownFormatter()
+    .UseFileStaticContentStore("./App_Data/Content");
 
 // Add Razor Pages
 builder.Services.AddRazorPages();

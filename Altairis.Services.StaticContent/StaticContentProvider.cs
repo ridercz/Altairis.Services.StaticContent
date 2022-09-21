@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Html;
-
-namespace Altairis.Services.StaticContent;
+﻿namespace Altairis.Services.StaticContent;
 public class StaticContentProvider {
     private readonly IStaticContentStore store;
     private readonly IStaticContentFormatter formatter;

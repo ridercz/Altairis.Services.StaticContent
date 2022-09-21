@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Html;
-
-namespace Altairis.Services.StaticContent;
+﻿namespace Altairis.Services.StaticContent;
 
 public interface IStaticContentFormatter {
 

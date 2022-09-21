@@ -36,6 +36,7 @@
 
 	<ItemGroup>
 		<Using Include="Microsoft.Extensions.Logging" />
+		<Using Include="Microsoft.AspNetCore.Html"/>
 	</ItemGroup>
 
 	<ItemGroup>

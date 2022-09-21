@@ -11,13 +11,13 @@ public static class StaticContentServiceCollectionExtensions
         return new StaticContentBuilder(services);
     }
 
-    public static StaticContentBuilder WithMarkdownFormatter(this StaticContentBuilder builder)
+    public static StaticContentBuilder UseMarkdownFormatter(this StaticContentBuilder builder)
     {
         builder.Services.AddTransient<IStaticContentFormatter, MarkdownStaticContentFormatter>();
         return builder;
     }
 
-    public static StaticContentBuilder WithFileStaticContentStore(this StaticContentBuilder builder, string dataFolder, string? fileExtension = null)
+    public static StaticContentBuilder UseFileStaticContentStore(this StaticContentBuilder builder, string dataFolder, string? fileExtension = null)
     {
         builder.Services.AddTransient<IStaticContentStore, FileStaticContentStore>();
         builder.Services.Configure<FileStaticContentStoreOptions>(options =>
@@ -28,7 +28,7 @@ public static class StaticContentServiceCollectionExtensions
         return builder;
     }
 
-    public static StaticContentBuilder WithDbStaticContentStore<TContext>(this StaticContentBuilder builder) where TContext : class, IStaticContentContext
+    public static StaticContentBuilder UseDbStaticContentStore<TContext>(this StaticContentBuilder builder) where TContext : class, IStaticContentContext
     {
         builder.Services.AddTransient<IStaticContentStore, DbStaticContentStore>();
         builder.Services.AddTransient<IStaticContentContext, TContext>();

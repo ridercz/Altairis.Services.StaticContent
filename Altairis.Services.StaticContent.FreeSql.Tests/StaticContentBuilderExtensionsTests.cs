@@ -1,13 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Logging;
 using Olbrasoft.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
 
 namespace Altairis.Services.StaticContent;
 public class StaticContentBuilderExtensionsTests
@@ -46,7 +38,7 @@ public class StaticContentBuilderExtensionsTests
         var BuilderMock = new Mock<StaticContentBuilder>(serviceCollectionMock.Object);
 
         //Act
-        var result = StaticContentBuilderExtensions.UseDbStaticContentStoreFreeS( BuilderMock.Object); 
+        var result = StaticContentBuilderExtensions.UseDbStaticContentStoreFreeS(BuilderMock.Object);
 
         //Assert
         Assert.IsAssignableFrom<StaticContentBuilder>(result);

@@ -32,6 +32,7 @@
 	<ItemGroup>
 		<Using Include="Xunit" />
 		<Using Include="Moq" />
+		<Using Include="Microsoft.Extensions.Logging"/>
 	</ItemGroup>
 
 </Project>

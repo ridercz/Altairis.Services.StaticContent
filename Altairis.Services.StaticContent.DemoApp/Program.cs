@@ -18,7 +18,8 @@ builder.Services.Configure<StaticContentViewComponentOptions>(options => {
 });
 builder.Services.AddStaticContent()
     .WithMarkdownFormatter()
-    .WithFileStaticContentStore("./App_Data/Content");
+    .WithDbStaticContentStore<DemoDbContext>();
+    //.WithFileStaticContentStore("./App_Data/Content");
 
 // Add Razor Pages
 builder.Services.AddRazorPages();

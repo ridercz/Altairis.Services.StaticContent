@@ -38,7 +38,7 @@ public class StaticContentBuilderExtensionsTests
         var BuilderMock = new Mock<StaticContentBuilder>(serviceCollectionMock.Object);
 
         //Act
-        var result = StaticContentBuilderExtensions.UseDbStaticContentStoreFreeS(BuilderMock.Object);
+        var result = StaticContentBuilderExtensions.UseDbStaticContentStoreFreeSql(BuilderMock.Object);
 
         //Assert
         Assert.IsAssignableFrom<StaticContentBuilder>(result);
@@ -60,12 +60,11 @@ public class StaticContentBuilderExtensionsTests
         services.AddSingleton(loggerMock.Object);
 
         //Act
-        StaticContentBuilderExtensions.UseDbStaticContentStoreFreeS(builder);
+        StaticContentBuilderExtensions.UseDbStaticContentStoreFreeSql(builder);
 
         //Assert
         var store = services.BuildServiceProvider().GetService<IStaticContentStore>();
-        Assert.IsAssignableFrom<DbStaticContentStoreFreeSql>(store);
+        Assert.IsType<DbStaticContentStoreFreeSql>(store);
 
     }
-
 }

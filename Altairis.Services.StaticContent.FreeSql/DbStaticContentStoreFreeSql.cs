@@ -11,7 +11,7 @@ public class DbStaticContentStoreFreeSql : IStaticContentStore
     public DbStaticContentStoreFreeSql(IFreeSql freeSql, ILogger<DbStaticContentStoreFreeSql> logger)
     {
         if (freeSql is null) throw new ArgumentNullException(nameof(freeSql));
-        if(logger is null) throw new ArgumentNullException(nameof(logger)); 
+        if (logger is null) throw new ArgumentNullException(nameof(logger));
 
         _freeSql = freeSql;
         _logger = logger;
@@ -20,16 +20,13 @@ public class DbStaticContentStoreFreeSql : IStaticContentStore
     public async Task<string> GetSource(string key)
     {
         var items = await _freeSql.Select<StaticContentItem>().Where(p => p.Key == key).ToListAsync();
-        
+
         if (!items.Any())
-        {           
+        {
             _logger.LogError("Static page with key {key} was not found in store.", key);
-            
+
             return string.Empty;
         }
         return items.Single().Text;
     }
-
-
-
 }

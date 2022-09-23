@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.2" />
+    <PackageReference Include="FreeSql.Provider.Sqlite" Version="3.2.669" />
+    <PackageReference Include="FreeSql.Provider.SqlServer" Version="3.2.669" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Altairis.Services.StaticContent.FreeSql\Altairis.Services.StaticContent.FreeSql.csproj" />
+    <ProjectReference Include="..\Altairis.Services.StaticContent\Altairis.Services.StaticContent.csproj" />
+  </ItemGroup>
+
+</Project>

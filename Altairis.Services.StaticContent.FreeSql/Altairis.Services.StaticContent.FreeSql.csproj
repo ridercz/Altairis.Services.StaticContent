@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <RootNamespace>Altairis.Services.StaticContent</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FreeSql" Version="3.2.669" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Altairis.Services.StaticContent\Altairis.Services.StaticContent.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Using Include="System" />
+	</ItemGroup>
+	
+</Project>
